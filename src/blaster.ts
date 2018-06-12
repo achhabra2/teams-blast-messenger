@@ -1,7 +1,7 @@
 import { TaskQueue } from 'cwait';
 import axios from 'axios';
 
-const MAX_SIMULTANEOUS = 6;
+const MAX_SIMULTANEOUS = 10;
 
 interface recipient {
   email: string;
