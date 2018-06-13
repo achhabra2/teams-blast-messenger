@@ -14,8 +14,8 @@ export default class Blaster {
 
   constructor(public token: string, public message: string) {}
 
-  async blastMessage(recepients: recipient[]) {
-    return await Promise.all(
+  public async blastMessage(recepients: recipient[]) {
+    return Promise.all(
       recepients.map(
         this.queue.wrap(
           async (user: recipient, index: number, array: recipient[]) => {
@@ -53,7 +53,7 @@ export default class Blaster {
     );
   }
 
-  postMessage(email: string) {
+  public postMessage(email: string) {
     const config = {
       headers: {
         Authorization: `Bearer ${this.token}`

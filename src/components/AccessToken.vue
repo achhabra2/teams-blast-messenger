@@ -5,32 +5,32 @@
   </label>
   <div class="field is-grouped is-grouped-centered">
     <div class="control is-expanded">
-      <input v-model="token" class="input is-primary" type="text" placeholder="Access Token">
+      <input required :value="value" @input="$emit('input', $event.target.value)" class="input is-primary" type="text" name="token" v-validate="'required|alpha_num'" placeholder="Access Token">
     </div>
     <div class="control">
-      <a @click="onSave" class="button is-info">
+      <a @click="$emit('save')" class="button is-info">
         Save
       </a>
     </div>
   </div>
+  <p v-show="errors.has('token')" class="help is-danger">{{ errors.first('token') }}</p>
+  <!-- <p v-show="fields.token && fields.token.valid" class="help is-success">Your Token is Valid</p> -->
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-@Component
-export default class AccessToken extends Vue {
-  private token = '';
-
-  public mounted() {
-    this.token = this.$store.state.token;
+@Component({
+  inject: ['$validator'],
+  props: {
+    value: String,
+    displayName: String,
+    isError: Boolean,
+    isSuccess: Boolean
   }
-
-  public onSave(e: Event) {
-    this.$store.dispatch('setToken', this.token);
-  }
-}
+})
+export default class AccessToken extends Vue {}
 </script>
 
 <style>

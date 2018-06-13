@@ -10,11 +10,14 @@
           <textarea 
           class="textarea is-primary" 
           type="text" 
-          placeholder="Primary textarea"
+          placeholder="Enter your blast message"
+          v-validate="'required'"
+          name="message"
           @input="(event) => $emit('input',event.target.value)"
           :value="value"
           @change="saveInput" />
         </div>
+        <p v-show="errors.has('message')" class="help is-danger">{{ errors.first('message') }}</p>
       </div>
     </div>
     <div class="column">
@@ -37,6 +40,7 @@ import debounce from 'debounce';
   components: {
     VueMarkdown
   },
+  inject: ['$validator'],
   props: {
     value: String
   }

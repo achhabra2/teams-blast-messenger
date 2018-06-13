@@ -8,7 +8,7 @@
     <div class="file">
     <label class="file-label">
       <input class="file-input" type="file" name="csv" ref="csv"
-      @change="handleFileChange">
+      @change="handleFileChange" v-validate="'required'" accept=".csv">
       <span class="file-cta">
         <span class="file-icon">
           <i class="fas fa-upload"></i>
@@ -21,7 +21,12 @@
     </div>
     </p>
     <p class="control">
-      <input class="button" @click="clearFile" type="reset" value="Remove File">
+      <input class="button is-danger is-outlined" @click="clearFile" type="reset" value="Remove File">
+    </p>
+    <p class="control">
+      <a class="button is-success" href="/blast_template.csv" download>
+      Download Template
+      </a>
     </p>
   </div>
   </div>
@@ -31,21 +36,23 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
+  inject: ['$validator'],
   props: {
     value: File
   }
 })
 export default class FilePicker extends Vue {
   private fileName: string = '';
+  // private csvTemplate: string = require('../assets/blast_template.csv');
 
-  clearFile(e: Event): void {
-    let csvElement = this.$refs.csv as HTMLInputElement;
+  public clearFile(e: Event): void {
+    const csvElement = this.$refs.csv as HTMLInputElement;
     csvElement.value = '';
     this.fileName = '';
     this.$emit('cleared');
   }
 
-  handleFileChange(e: any): void {
+  public handleFileChange(e: any): void {
     this.fileName = e.target.value;
     this.$emit('input', e.target.files[0]);
   }
