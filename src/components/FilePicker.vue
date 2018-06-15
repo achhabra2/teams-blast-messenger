@@ -3,7 +3,7 @@
       <label class="label">
       File Selection
     </label>
-  <div class="field is-grouped">
+  <div class="field is-grouped is-grouped-multiline">
     <p class="control">
     <div class="file">
     <label class="file-label">

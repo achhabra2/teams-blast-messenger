@@ -8,12 +8,12 @@ self.__precacheManifest = [
     "url": "/teams-blast-messenger/css/chunk-vendors.dd34e4d6.css"
   },
   {
-    "revision": "33a152270cc7b3e9c7b872e3264156a1",
+    "revision": "5f3b2bea44e84a881f56feb378eda6ad",
     "url": "/teams-blast-messenger/index.html"
   },
   {
-    "revision": "8b095c0d2a18713720d3",
-    "url": "/teams-blast-messenger/js/app.8b095c0d.js"
+    "revision": "6407b8b744bd42a1b7b1",
+    "url": "/teams-blast-messenger/js/app.6407b8b7.js"
   },
   {
     "revision": "b34f218098849fbdcf39b09dc743e3ac",
@@ -112,7 +112,7 @@ self.__precacheManifest = [
     "url": "/teams-blast-messenger/fonts/CiscoSansTTLight.67317c19.woff2"
   },
   {
-    "revision": "8b095c0d2a18713720d3",
+    "revision": "6407b8b744bd42a1b7b1",
     "url": "/teams-blast-messenger/css/app.fb86f7fe.css"
   },
   {

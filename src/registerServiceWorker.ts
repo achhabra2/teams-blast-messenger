@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === 'production') {
     ready() {
       console.log(
         'App is being served from cache by a service worker.\n' +
-        'For more details, visit https://goo.gl/AFskqB',
+          'For more details, visit https://goo.gl/AFskqB'
       );
     },
     cached() {
@@ -15,12 +15,30 @@ if (process.env.NODE_ENV === 'production') {
     },
     updated() {
       console.log('New content is available; please refresh.');
+      var button = document.createElement('button');
+      button.style.position = 'absolute';
+      button.style.bottom = '24px';
+      button.style.left = '24px';
+      button.setAttribute('class', 'button is-primary');
+      button.textContent =
+        'This site has updated. Please click to see changes.';
+
+      button.addEventListener('click', function() {
+        button.disabled = true;
+        setTimeout(function() {
+          window.location.reload();
+        }, 200);
+      });
+
+      document.body.appendChild(button);
     },
     offline() {
-      console.log('No internet connection found. App is running in offline mode.');
+      console.log(
+        'No internet connection found. App is running in offline mode.'
+      );
     },
     error(error) {
       console.error('Error during service worker registration:', error);
-    },
+    }
   });
 }

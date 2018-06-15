@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
 
 importScripts(
-  "/teams-blast-messenger/precache-manifest.a5b3f731caa81a6ad8ca360572d048ed.js"
+  "/teams-blast-messenger/precache-manifest.14dab5eacb737396d41a2d39f4490564.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "teams-blast-message"});
