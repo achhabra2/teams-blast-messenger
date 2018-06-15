@@ -20,8 +20,7 @@ if (process.env.NODE_ENV === 'production') {
       button.style.bottom = '24px';
       button.style.left = '24px';
       button.setAttribute('class', 'button is-primary');
-      button.textContent =
-        'This site has updated. Please click to see changes.';
+      button.textContent = 'Click to update site.';
 
       button.addEventListener('click', function() {
         button.disabled = true;
