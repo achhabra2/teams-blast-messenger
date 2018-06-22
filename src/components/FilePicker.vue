@@ -24,7 +24,7 @@
       <input class="button is-danger is-outlined" @click="clearFile" type="reset" value="Remove File">
     </p>
     <p class="control">
-      <a class="button is-success" href="/blast_template.csv" download>
+      <a class="button is-success" :href="csvTemplate" download>
       Download Template
       </a>
     </p>
@@ -43,7 +43,7 @@ import { Component, Vue } from 'vue-property-decorator';
 })
 export default class FilePicker extends Vue {
   private fileName: string = '';
-  // private csvTemplate: string = require('../assets/blast_template.csv');
+  private csvTemplate: string = process.env.BASE_URL + 'blast_template.csv';
 
   public clearFile(e: Event): void {
     const csvElement = this.$refs.csv as HTMLInputElement;

@@ -14,10 +14,13 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
 
 importScripts(
-  "/teams-blast-messenger/precache-manifest.efac402d091751bab7824909a5243801.js"
+  "/teams-blast-messenger/precache-manifest.8282f9cc6b89c3bbbe7d0ba1d053bdc7.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "teams-blast-message"});
+
+workbox.skipWaiting();
+workbox.clientsClaim();
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
